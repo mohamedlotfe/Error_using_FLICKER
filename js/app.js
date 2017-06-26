@@ -31,7 +31,7 @@ var Models = [
 }];
 
 var map, i,makeMarkers,photoURL="",contentString="";
-markers = [];
+var markers = [];
 var infowindow = null;
 
 function initilizationMap() {
