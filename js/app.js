@@ -289,8 +289,7 @@ function initilizationMap() {
         infowindow.setContent("<p>"+this.title+"</p></br>"+contentString+"</br>"+photoURL);
         map.panTo(marker.position);
         this.setAnimation(google.maps.Animation.BOUNCE);
-        infowindow.open(map, this);
-        
+        infowindow.open(map, this);        
         setTimeout(function () {marker.setAnimation(null); }, 1300);
         
         infowindow.addListener('closeclick', function(){
@@ -305,20 +304,21 @@ function initilizationMap() {
   function GetDetails(loc)
   {
   var MyUrl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key='+
-  '404d11dfce7c38ef841c30dee81c35c7&tags=food&text=people&lat=' +loc.position.lat + '&lon=' 
-  + loc.position.lng + '&format=json&nojsoncallback=1';
+  '404d11dfce7c38ef841c30dee81c35c7&tags=food&text=people&lat=' +loc.position.lat() + '&lon=' 
+  + loc.position.lng()+ '&format=json&nojsoncallback=1';
 
   $.ajax({
             url: MyUrl,
             dataType: "json",
             success: function(response) {
+console.log(response);
 
                $.each(response.photos.photo, function(i,item){
             //Get the url for the image.
-             photoURL = 'http://farm' + item.farm + '.static.flickr.com/' + item.server + '/' +
+             loc.photoURL = 'http://farm' + item.farm + '.static.flickr.com/' + item.server + '/' +
              item.id + '_' + item.secret + '_m.jpg';      
              htmlString = '<img src="' + photoURL + '">';                    
-             contentString = '<div id="content">' + htmlString + '</div>';
+             loc.contentString = '<div id="content">' + htmlString + '</div>';
 
               });
 
