@@ -31,7 +31,7 @@ var Models = [
 }];
 
 var map, i,makeMarkers,photoURL="",contentString="";
-var markers = [];
+markers = [];
 var infowindow = null;
 
 function initilizationMap() {
@@ -282,27 +282,36 @@ function initilizationMap() {
     markers.push(marker);
     bounds.extend(marker.position);
     //when u click on the spescific marker // marker.addListener('click', function(){
-    google.maps.event.addListener(marker, 'click', function(){
+    marker.addListener('click', markerActivatione);
 
-        GetDetails(this);
-        infowindow.close();
-        //infowindow.setContent("<p>"+this.title+"</p></br>"+contentString+"</br>"+photoURL);
-        //map.panTo(marker.position);
-        this.setAnimation(google.maps.Animation.BOUNCE);
-        // infowindow.open(map, this);        
-        setTimeout(function () {marker.setAnimation(null); }, 1300);
-        
+       
         /*infowindow.addListener('closeclick', function(){
           infowindow.setMarker(null);
         });*/
-    });
+    
 
   } //end looping here
   
   map.fitBounds(bounds);
-  //From https://stackoverflow.com/questions/21966344/flickr-api-flickr-geotagged-photos-not-being-displayed-as-map-markers
+
+// Activation marker  AS  "Don't make functions within a loop" Error
+  function markerActivatione() {
+
+        GetDetails(this);
+        infowindow.close();
+        
+        this.setAnimation(google.maps.Animation.BOUNCE);
+        // infowindow.open(map, this);        
+        setTimeout(function () {marker.setAnimation(null); }, 1300);
+        
+
+}
+
+
   function GetDetails(loc)
   {
+      //From https://stackoverflow.com/questions/21966344/flickr-api-flickr-geotagged-photos-not-being-displayed-as-map-markers
+
   var MyUrl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key='+
   '404d11dfce7c38ef841c30dee81c35c7&tags=food&text=people&lat=' +loc.position.lat() + '&lon=' + loc.position.lng()+ '&format=json&nojsoncallback=1';
 
@@ -319,7 +328,7 @@ function initilizationMap() {
              loc.htmlString = '<img src="' + loc.photoURL + '">';                    
              loc.contentString = '<div id="contents">' + loc.htmlString + '</div>';
 
-              });
+              })
               
               infowindow.setContent("<p>"+"<strong>"+loc.title+"<strong>"+"</p></br>"+loc.contentString+"</br>"+"<a >"+loc.photoURL+"</a>");
               infowindow.open(map, loc);    
@@ -328,8 +337,8 @@ function initilizationMap() {
             }
   }).fail(function(xhr, textStatus, errorThrown) {
             alert("Sorry , about fail loading ...Try agin or Reload");
-        });
-    }
+        })
+    };
 
     
 }// end initilization function 
