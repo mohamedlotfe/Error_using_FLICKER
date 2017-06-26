@@ -30,7 +30,7 @@ var Models = [
      place_id: 5
 }];
 
-var map, makeMarkers,photoURL="",contentString="";
+var map, i,makeMarkers,photoURL="",contentString="";
 markers = [];
 var infowindow = null;
 
@@ -285,11 +285,8 @@ function initilizationMap() {
     marker.addListener('click', function(){
 
         GetDetails(this);
-        infowindow.close();
-        //infowindow.setContent("<p>"+this.title+"</p></br>"+contentString+"</br>"+photoURL);
-        //map.panTo(marker.position);
+        infowindow.close();        
         this.setAnimation(google.maps.Animation.BOUNCE);
-        // infowindow.open(map, this);        
         setTimeout(function () {marker.setAnimation(null); }, 1300);
         
         /*infowindow.addListener('closeclick', function(){
@@ -319,7 +316,7 @@ function initilizationMap() {
              loc.htmlString = '<img src="' + loc.photoURL + '">';                    
              loc.contentString = '<div id="contents">' + loc.htmlString + '</div>';
 
-              });
+              })
               
               infowindow.setContent("<p>"+"<strong>"+loc.title+"<strong>"+"</p></br>"+loc.contentString+"</br>"+"<a >"+loc.photoURL+"</a>");
               infowindow.open(map, loc);    
@@ -359,7 +356,7 @@ for (i = 0; i < Models.length; i++) {
 
           numLocations=self.LocationsArray().length; 
       
-        for (var i = 0; i < numLocations; i++) {
+        for ( i = 0; i < numLocations; i++) {
       
           if ( self.LocationsArray()[i].title.toLowerCase().indexOf(self.filteredQuery()) >- 1)
             filterPlaces.push(self.LocationsArray()[i]);
