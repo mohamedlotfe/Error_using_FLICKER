@@ -347,7 +347,7 @@ function initilizationMap() {
 function mapError() {
   // Error handling
    $('#map').text('Error: Google Maps Informations will not be loaded');
-};
+}
 
 
 var viewModel = function() {
