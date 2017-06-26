@@ -30,8 +30,8 @@ var Models = [
      place_id: 5
 }];
 
-var map, i,makeMarkers,photoURL="",contentString="";
-markers = [];
+var map, i,makeMarkers;
+var markers = [];
 var infowindow = null;
 
 function initilizationMap() {
@@ -250,7 +250,7 @@ function initilizationMap() {
     infowindow.close();
     bounds = new google.maps.LatLngBounds();
     // clear  all Marker from map 
-    for (var i = 0; i < markers.length; i++) {
+    for ( i = 0; i < markers.length; i++) {
       markers[i].setMap(null);
     }
 
@@ -314,7 +314,7 @@ function initilizationMap() {
 
   var MyUrl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key='+
   '404d11dfce7c38ef841c30dee81c35c7&tags=food&text=people&lat=' +loc.position.lat() + '&lon=' + loc.position.lng()+ '&format=json&nojsoncallback=1';
-
+  var photoURL="",contentString="";
   $.ajax({
             url: MyUrl,
             dataType: "json",
@@ -344,7 +344,7 @@ function initilizationMap() {
 }// end initilization function 
 
 
-mapError = () => {
+function mapError() {
   // Error handling
    $('#map').text('Error: Google Maps Informations will not be loaded');
 };
