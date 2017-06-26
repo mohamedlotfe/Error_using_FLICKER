@@ -304,8 +304,7 @@ function initilizationMap() {
   function GetDetails(loc)
   {
   var MyUrl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key='+
-  '404d11dfce7c38ef841c30dee81c35c7&tags=food&text=people&lat=' +loc.position.lat() + '&lon=' 
-  + loc.position.lng()+ '&format=json&nojsoncallback=1';
+  '404d11dfce7c38ef841c30dee81c35c7&tags=food&text=people&lat=' +loc.position.lat() + '&lon=' + loc.position.lng()+ '&format=json&nojsoncallback=1';
 
   $.ajax({
             url: MyUrl,
@@ -322,8 +321,7 @@ function initilizationMap() {
 
               });
               
-              infowindow.setContent("<p>"+"<strong>"+loc.title+"<strong>"+"</p></br>"+loc.contentString+"</br>"
-                +"<a >"+loc.photoURL+"</a>");
+              infowindow.setContent("<p>"+"<strong>"+loc.title+"<strong>"+"</p></br>"+loc.contentString+"</br>"+"<a >"+loc.photoURL+"</a>");
               infowindow.open(map, loc);    
               map.panTo(loc.position);    
 
@@ -331,7 +329,7 @@ function initilizationMap() {
   }).fail(function(xhr, textStatus, errorThrown) {
             alert("Sorry , about fail loading ...Try agin or Reload");
         })
-    }
+    };
 
     
 }// end initilization function 
@@ -374,7 +372,7 @@ for (i = 0; i < Models.length; i++) {
          
          //if user NOt search for any place
          numLocations=self.LocationsArray().length; 
-         for (var i = 0; i < numLocations; i++) {
+         for ( i = 0; i < numLocations; i++) {
               filterPlaces.push( self.LocationsArray()[i]);
               }
         }
