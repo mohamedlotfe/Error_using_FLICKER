@@ -2,32 +2,32 @@
 var Models = [
 {
     title: 'HSBC - Bank',
-        location: {lat:30.0618514 , lng:  31.33627469999999},
-    url: 'http://www.mallofegypt.com',
-
-    description: 'Mall of Egypt ... Drop by our Valley and donate items from books ' +
-    "to clothing; these will find their way " +
-    'to those who need them the most through Ahl Masr' ,
-
+    location: {lat:30.0618514 , lng:  31.33627469999999},
     place_id: 1
 
 },
 {
-    
-         title: 'Fisal Islamic Bank',
-        location: {lat:30.0598666 , lng: 31.336481899999967},
-    url: 'http://www.dreamlandgolf.com/' ,
-    description: 'The Dreamland Golf Course is a world class facility' +
-    'located just a few minutes away from the Great Pyramids.',
+    title: 'Barclays Bank Egypt',
+    location: {lat:30.0609049 , lng: 31.33781870000007},
     place_id: 2
+
+},
+{
+    title: 'Arab Bank',
+    location: {lat:30.0538135 , lng:  31.33625059999997},
+    place_id: 3
+
+},
+{
+
+     title: 'Fisal Islamic Bank',
+    location: {lat:30.0598666 , lng: 31.336481899999967}, 
+    place_id: 4
 },
 {
      title: 'EG Bank _ Nasr City ',
-        location: {lat:30.0577622 , lng:31.337659400000007 },
-    url: 'http://www.mallofarabia.com.eg',
-    description: 'Fashion. Women; Unisex; Men; Children; Sportswear & Goods; Accessories . ' +
-    "& Leather Products; Health & Beauty. Women. Daniel Hechter · Hejabi · Whats Up " ,
-    place_id: 3
+     location: {lat:30.0577622 , lng:31.337659400000007 },
+     place_id: 5
 }];
 
 var map, makeMarkers,photoURL="",contentString="";
@@ -292,9 +292,9 @@ function initilizationMap() {
         // infowindow.open(map, this);        
         setTimeout(function () {marker.setAnimation(null); }, 1300);
         
-        infowindow.addListener('closeclick', function(){
+        /*infowindow.addListener('closeclick', function(){
           infowindow.setMarker(null);
-        });
+        });*/
     });
 
   } //end looping here
@@ -322,8 +322,8 @@ function initilizationMap() {
 
               });
               
-              infowindow.setContent("<p>"+"<strong>"+loc.title+"<strong>""</p></br>"+loc.contentString+"</br>"
-                +"<a href="+loc.photoURL+"></a>");
+              infowindow.setContent("<p>"+"<strong>"+loc.title+"<strong>"+"</p></br>"+loc.contentString+"</br>"
+                +"<a >"+loc.photoURL+"</a>");
               infowindow.open(map, loc);    
               map.panTo(loc.position);    
 
