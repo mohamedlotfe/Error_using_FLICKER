@@ -2,28 +2,36 @@
 <html>
 
 <head>
+     <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Neighborhood Map</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 
   <link rel="stylesheet" href="css/styel.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
-   <meta charset="UTF-8">
+  
 </head>
 
 <body>
+<div class="container-fluid">
+  <div class="row">
+      <!---->    
+      <h1>Search Here !? </h1>
+    <input data-bind="textInput: filteredQuery" id="filter-text" class="input_Field" type="text" placeholder="select which u want ">
 
-  <h1>Search Here !? </h1>
-  <input data-bind="textInput: filteredQuery" id="filter-text" class="input_Field" type="text" placeholder="select which u want ">
+      <!--call function fileringResults  for display all Valid locations-->
+      <div class="content">
+        <ul data-bind="foreach: filteringResults()">
+          <li data-bind="text: title, click: SetMarker"></li>
+        </ul>
+      </div>
 
-  <div class="content">
-    <ul data-bind="foreach: filteringResults()">
-      <li data-bind="text: title, click: SetMarker"></li>
-    </ul>
+    <!-- Show Map Section "Google Maps"-->
+    <div id="map"></div>
+
   </div>
-
-
-  <div id="map"></div>
-
+</div>
 
 
 
