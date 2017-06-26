@@ -328,7 +328,7 @@ function initilizationMap() {
              loc.htmlString = '<img src="' + loc.photoURL + '">';                    
              loc.contentString = '<div id="contents">' + loc.htmlString + '</div>';
 
-              })
+              });
               
               infowindow.setContent("<p>"+"<strong>"+loc.title+"<strong>"+"</p></br>"+loc.contentString+"</br>"+"<a >"+loc.photoURL+"</a>");
               infowindow.open(map, loc);    
@@ -337,8 +337,8 @@ function initilizationMap() {
             }
   }).fail(function(xhr, textStatus, errorThrown) {
             alert("Sorry , about fail loading ...Try agin or Reload");
-        })
-    };
+        });
+    }
 
     
 }// end initilization function 
