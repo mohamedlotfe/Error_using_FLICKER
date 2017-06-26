@@ -1,0 +1,58 @@
+ html,body {
+        font-family: Arial, sans-serif;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+#map {
+        bottom:0px;
+        height: 100%;
+        left: 350px;
+        position: absolute;
+        right: 0px;
+      }
+
+.container {
+    position: relative;
+    height: 100%;
+
+  }
+
+.input_Field
+{
+    width: 235px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding-left: 5px;
+    font-size: 13px;
+    margin-left: 30px;
+    border-radius: 4px;
+    height: 30px;
+}
+ul li {
+ margin-bottom: 5px;
+    text-decoration: none;
+    border: 1px solid #EEE;
+    width: 216px;
+    padding: 3px;
+    padding-left: 12px;
+    border-radius: 5px;
+}
+ul li:hover {
+        background-color:#f7cda9;
+
+}
+
+h1 {
+  margin-left: 15px;
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+
+  #map {
+
+    left: 280px;
+  }
+
+}
