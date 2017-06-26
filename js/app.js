@@ -317,12 +317,13 @@ function initilizationMap() {
             //Get the url for the image.
              loc.photoURL = 'http://farm' + item.farm + '.static.flickr.com/' + item.server + '/' +
              item.id + '_' + item.secret + '_m.jpg';      
-             htmlString = '<img src="' + photoURL + '">';                    
-             loc.contentString = '<div id="contents">' + htmlString + '</div>';
+             loc.htmlString = '<img src="' + loc.photoURL + '">';                    
+             loc.contentString = '<div id="contents">' + loc.htmlString + '</div>';
 
               });
               
-              infowindow.setContent("<p>"+loc.title+"</p></br>"+contentString+"</br>"+photoURL);
+              infowindow.setContent("<p>"+"<strong>"+loc.title+"<strong>""</p></br>"+loc.contentString+"</br>"
+                +"<a href="+loc.photoURL+"></a>");
               infowindow.open(map, loc);    
               map.panTo(loc.position);    
 
