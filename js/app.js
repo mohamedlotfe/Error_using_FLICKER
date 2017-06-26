@@ -9,7 +9,8 @@ var Models = [
     "to clothing; these will find their way " +
     'to those who need them the most through Ahl Masr' ,
 
-    place_id: 1,
+    place_id: 1
+
 },
 {
     
@@ -18,7 +19,7 @@ var Models = [
     url: 'http://www.dreamlandgolf.com/' ,
     description: 'The Dreamland Golf Course is a world class facility' +
     'located just a few minutes away from the Great Pyramids.',
-    place_id: 2,
+    place_id: 2
 },
 {
      title: 'EG Bank _ Nasr City ',
@@ -26,7 +27,7 @@ var Models = [
     url: 'http://www.mallofarabia.com.eg',
     description: 'Fashion. Women; Unisex; Men; Children; Sportswear & Goods; Accessories . ' +
     "& Leather Products; Health & Beauty. Women. Daniel Hechter · Hejabi · Whats Up " ,
-    place_id: 3,
+    place_id: 3
 }];
 
 var map, makeMarkers,photoURL="",contentString="";
@@ -283,12 +284,12 @@ function initilizationMap() {
     //when u click on the spescific marker 
     marker.addListener('click', function(){
 
-        GetDetails(Models[itr]);
+        GetDetails(this);
         infowindow.close();
-        infowindow.setContent("<p>"+marker.title+"</p></br>"+contentString+"</br>"+photoURL);
+        infowindow.setContent("<p>"+this.title+"</p></br>"+contentString+"</br>"+photoURL);
         map.panTo(marker.position);
-        marker.setAnimation(google.maps.Animation.BOUNCE);
-        infowindow.open(map, marker);
+        this.setAnimation(google.maps.Animation.BOUNCE);
+        infowindow.open(map, this);
         
         setTimeout(function () {marker.setAnimation(null); }, 1300);
         
@@ -300,10 +301,12 @@ function initilizationMap() {
   } //end looping here
   
   map.fitBounds(bounds);
-  function GetDetails(Model){
+  //From https://stackoverflow.com/questions/21966344/flickr-api-flickr-geotagged-photos-not-being-displayed-as-map-markers
+  function GetDetails(loc)
+  {
   var MyUrl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key='+
-  '404d11dfce7c38ef841c30dee81c35c7&tags=food&text=people&lat=' +Model.location.lat + '&lon=' 
-  + Model.location.lng + '&format=json&nojsoncallback=1';
+  '404d11dfce7c38ef841c30dee81c35c7&tags=food&text=people&lat=' +loc.position.lat + '&lon=' 
+  + loc.position.lng + '&format=json&nojsoncallback=1';
 
   $.ajax({
             url: MyUrl,
