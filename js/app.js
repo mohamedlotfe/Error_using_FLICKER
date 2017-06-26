@@ -281,12 +281,15 @@ function initilizationMap() {
 
     markers.push(marker);
     bounds.extend(marker.position);
-    //when u click on the spescific marker 
-    marker.addListener('click', function(){
+    //when u click on the spescific marker // marker.addListener('click', function(){
+    google.maps.event.addListener(marker, 'click', function(){
 
         GetDetails(this);
-        infowindow.close();        
+        infowindow.close();
+        //infowindow.setContent("<p>"+this.title+"</p></br>"+contentString+"</br>"+photoURL);
+        //map.panTo(marker.position);
         this.setAnimation(google.maps.Animation.BOUNCE);
+        // infowindow.open(map, this);        
         setTimeout(function () {marker.setAnimation(null); }, 1300);
         
         /*infowindow.addListener('closeclick', function(){
