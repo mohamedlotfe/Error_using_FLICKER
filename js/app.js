@@ -313,7 +313,7 @@ function initilizationMap() {
       //From https://stackoverflow.com/questions/21966344/flickr-api-flickr-geotagged-photos-not-being-displayed-as-map-markers
 
   var MyUrl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key='+
-  '404d11dfce7c38ef841c30dee81c35c7&tags=food&text=people&lat=' +loc.position.lat() + '&lon=' + loc.position.lng()+ '&format=json&nojsoncallback=1';
+  '404d11dfce7c38ef841c30dee81c35c7&text=bank&lat=' +loc.position.lat() + '&lon=' + loc.position.lng()+ '&format=json&nojsoncallback=1';
   var photoURL="",contentString="";
   $.ajax({
             url: MyUrl,
