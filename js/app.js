@@ -1,25 +1,20 @@
-
 var Models = [
 {
     title: 'HSBC - Bank',
     location: {lat:30.0618514 , lng:  31.33627469999999},
     place_id: 1
-
 },
 {
     title: 'Barclays Bank Egypt',
     location: {lat:30.0609049 , lng: 31.33781870000007},
     place_id: 2
-
 },
 {
     title: 'Arab Bank',
     location: {lat:30.0538135 , lng:  31.33625059999997},
     place_id: 3
-
 },
 {
-
      title: 'Fisal Islamic Bank',
     location: {lat:30.0598666 , lng: 31.336481899999967}, 
     place_id: 4
@@ -29,7 +24,6 @@ var Models = [
      location: {lat:30.0577622 , lng:31.337659400000007 },
      place_id: 5
 }];
-
 var map, i,makeMarkers;
 var markers = [];
 var infowindow = null;
@@ -259,7 +253,6 @@ function initilizationMap() {
       markers[pos].setMap(map);
       bounds.extend(markers[pos].position);
     }
-
     map.fitBounds(bounds);
   };
 
@@ -276,50 +269,40 @@ function initilizationMap() {
       title:titleX,
       description: descriptionX,
       animation: google.maps.Animation.DROP
-
     });
 
     markers.push(marker);
     bounds.extend(marker.position);
-    //when u click on the spescific marker // marker.addListener('click', function(){
+    //when u click on the spescific marker 
     marker.addListener('click', markerActivatione);
 
-       
-        /*infowindow.addListener('closeclick', function(){
-          infowindow.setMarker(null);
-        });*/
-    
-
-  } //end looping here
-  
+  } //end looping here 
   map.fitBounds(bounds);
 
 // Activation marker  AS  "Don't make functions within a loop" Error
   function markerActivatione() {
 
         GetDetails(this);
-        infowindow.close();
-        
+        infowindow.close();        
         this.setAnimation(google.maps.Animation.BOUNCE);
         // infowindow.open(map, this);        
         setTimeout(function () {marker.setAnimation(null); }, 1300);
-        
-
+        infowindow.addListener('closeclick', function(){
+          infowindow.setMarker(null);
+        });
 }
-
 
   function GetDetails(loc)
   {
       //From https://stackoverflow.com/questions/21966344/flickr-api-flickr-geotagged-photos-not-being-displayed-as-map-markers
-
   var MyUrl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key='+
   '404d11dfce7c38ef841c30dee81c35c7&text=building&lat=' +loc.position.lat() + '&lon=' + loc.position.lng()+ '&format=json&nojsoncallback=1';
   var photoURL="",contentString="";
+
   $.ajax({
             url: MyUrl,
             dataType: "json",
             success: function(response) {
-                //console.log(response);
 
                $.each(response.photos.photo, function(i,item){
             //Get the url for the image.
@@ -330,7 +313,7 @@ function initilizationMap() {
 
               });
               
-              infowindow.setContent("<p>"+"<strong>"+loc.title+"<strong>"+"</p></br>"+loc.contentString+"</br>"+"<a >"+loc.photoURL+"</a>");
+              infowindow.setContent("<p>"+"<strong>"+loc.title+"</strong>"+"</p></br>"+loc.contentString+"</br>"+"<a >"+loc.photoURL+"</a>");
               infowindow.open(map, loc);    
               map.panTo(loc.position);    
 
@@ -347,9 +330,8 @@ function initilizationMap() {
 function mapError() {
   // Error handling
    $('#map').text('Error: Google Maps Informations will not be loaded');
-}
-
-
+};
+     //the octopc to control views and models
 var viewModel = function() {
   var self =this;
   var numLocations;
@@ -359,24 +341,18 @@ var viewModel = function() {
 for (i = 0; i < Models.length; i++) {
         self.LocationsArray.push(Models[i]);
     }
-
-   
+  
   filteringResults = function(){
        //if user search for spesific place
     filterPlaces = ko.observableArray();
     if (self.filteredQuery()) {
-
-          numLocations=self.LocationsArray().length; 
-      
+          numLocations=self.LocationsArray().length;       
         for ( i = 0; i < numLocations; i++) {
-      
           if ( self.LocationsArray()[i].title.toLowerCase().indexOf(self.filteredQuery()) >- 1)
             filterPlaces.push(self.LocationsArray()[i]);
          }
-
          //function to filter markers as places 
-          makeMarkers();
-    
+          makeMarkers(); 
     }else{
          
          //if user NOt search for any place
@@ -385,7 +361,6 @@ for (i = 0; i < Models.length; i++) {
               filterPlaces.push( self.LocationsArray()[i]);
               }
         }
-
       //in two cases will Rturn back observableArray      
     return filterPlaces();
   };
@@ -393,8 +368,6 @@ for (i = 0; i < Models.length; i++) {
   self.SetMarker= function(place){
     google.maps.event.trigger(markers[place.place_id -1], 'click');
   };
-
-
 };
 
 ko.applyBindings(viewModel);
