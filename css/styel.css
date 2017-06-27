@@ -1,69 +1,58 @@
  html,
- body{
-        font-family: Arial, sans-serif;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-
-#map{
-        bottom:0px;
-        height: 100%;
-        left: 350px;
-        position: absolute;
-        right: 0px;
-      }
-
-.container{
-    position: relative;
-    height: 100%;
-
-  }
-
-.input_Field{
-    width: 235px;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    padding-left: 5px;
-    font-size: 13px;
-    margin-left: 30px;
-    border-radius: 4px;
-    height: 30px;
-}
-ul li{
-    margin-bottom: 5px;
-    text-decoration: none;
-    border: 1px solid #EEE;
-    width: 216px;
-    padding: 3px;
-    padding-left: 12px;
-    border-radius: 5px;
-}
-
-ul li:hover{
-        background-color:#f7cda9;
-}
-
-h1{
-  margin-left: 15px;
-}
-
-@media (min-width: 480px) and (max-width: 768px) {
-#map{
-    left: 280px;
-  }
-}
-
-@media (max-width: 480px)  {
-#map{
-    left: 250px;
-  }
-.input_Field{
-    width:160px;
-    margin-left: 10px;
-}  
-ul li{
-    margin-left: -5px;
-    width: 160px
+ body {
+ 	font - family: Arial, sans - serif;
+ 	height: 100 % ;
+ 	margin: 0;
+ 	padding: 0;
+ }#
+ map {
+ 	bottom: 0 px;
+ 	height: 100 % ;
+ 	left: 350 px;
+ 	position: absolute;
+ 	right: 0 px;
+ }.container {
+ 	position: relative;
+ 	height: 100 % ;
+ }.input_Field {
+ 	width: 235 px;
+ 	margin - bottom: 20 px;
+ 	margin - top: 10 px;
+ 	padding - left: 5 px;
+ 	font - size: 13 px;
+ 	margin - left: 30 px;
+ 	border - radius: 4 px;
+ 	height: 30 px;
  }
-}
+ ul li {
+ 	margin - bottom: 5 px;
+ 	text - decoration: none;
+ 	border: 1 px solid# EEE;
+ 	width: 216 px;
+ 	padding: 3 px;
+ 	padding - left: 12 px;
+ 	border - radius: 5 px;
+ }
+ ul li: hover {
+ 	background - color: #f7cda9;
+ }
+ h1 {
+ 	margin - left: 15 px;
+ }
+ @media(min - width: 480 px) and(max - width: 768 px) {#
+ 	map {
+ 		left: 280 px;
+ 	}
+ }
+ @media(max - width: 480 px) {#
+ 	map {
+ 		left: 250 px;
+ 	}.input_Field {
+ 		width: 160 px;
+ 		margin - left: 10 px;
+ 	}
+ 	ul li {
+ 		margin - left: -5 px;
+ 		width: 160 px
+ 	}
+ }
