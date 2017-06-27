@@ -2,45 +2,35 @@
 <html>
 
 <head>
-     <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Neighborhood Map</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Neighborhood Map</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-
-  <link rel="stylesheet" href="css/styel.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+    <link rel="stylesheet" href="css/styel.css" >
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
   
 </head>
-
 <body>
-<div class="container-fluid">
-  <div class="row">
-      <!---->    
-      <h1>Search Here !? </h1>
-    <input data-bind="textInput: filteredQuery" id="filter-text" class="input_Field" type="text" placeholder="select which u want ">
 
-      <!--call function fileringResults  for display all Valid locations-->
-      <div class="content">
-        <ul data-bind="foreach: filteringResults()">
-          <li data-bind="text: title, click: SetMarker"></li>
-        </ul>
+    <div class="container-fluid">
+      <div class="row">
+          <!--call function fileringResults  for display all Valid locations-->
+          <div class="content">
+          <h1>Search Here !? </h1>
+          <input data-bind="textInput: filteredQuery" id="filter-text" class="input_Field" type="text" placeholder="select which u want ">
+            <ul data-bind="foreach: filteringResults()">
+              <li data-bind="text: title, click: SetMarker"></li>
+            </ul>
+          </div>
+        <!-- Show Map Section "Google Maps"-->
+        <div id="map"></div>
+
       </div>
-
-    <!-- Show Map Section "Google Maps"-->
-    <div id="map"></div>
-
-  </div>
-</div>
-
-
-
+    </div>
   <script src="js/lib/jquery-3.1.1.min.js"></script>  
   <script src="js/lib/knockout.js"></script>
   <script src="js/app.js"></script>
  <script async  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdVKe-Wtr53nm6wvy0-dkeS0KqplN9dU8&v=3&callback=initilizationMap" onerror="mapError()" ></script>
-    
-
 </body>
-
 </html>
