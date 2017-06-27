@@ -281,15 +281,23 @@ function initilizationMap() {
 
 // Activation marker  AS  "Don't make functions within a loop" Error
   function markerActivatione() {
-
+        infowindow.close();  
         GetDetails(this);
-        infowindow.close();        
-        this.setAnimation(google.maps.Animation.BOUNCE);
-        // infowindow.open(map, this);        
-        setTimeout(function () {marker.setAnimation(null); }, 1300);
+        toggleBounce(this);      
         infowindow.addListener('closeclick', function(){
           infowindow.setMarker(null);
         });
+}
+function toggleBounce(marker) {
+ 
+  if (marker.getAnimation() !== null) {  // <--- get animation state
+      marker.setAnimation(null); // <---  set animation to null  (stop bouncing)
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE); //  <--  set animation to BOUNCE
+    setTimeout(function() {
+        marker.setAnimation(null);   // <---  set animation to null  (stop bouncing)
+    }, 1500);
+  }
 }
 
   function GetDetails(loc)
