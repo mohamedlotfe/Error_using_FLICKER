@@ -1,0 +1,11 @@
+-About
+
+""This submission hasn't progressed from the previous one yet.
+In addition, all locations are having the same location details:""
+
+- MY Explanation
+making a unique API request for each location and refer to the line of code where the API request is made
+and <strong>Forum Mentor </strong> says tha same <br>
+you can check that by yourself  
+
+https://discussions.udacity.com/t/location-details-not-accurate/288807/6?u=mohamed_lotfe 
