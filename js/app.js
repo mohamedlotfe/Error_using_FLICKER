@@ -338,7 +338,7 @@ function toggleBounce(marker) {
 function mapError() {
   // Error handling
    $('#map').text('Error: Google Maps Informations will not be loaded');
-};
+}
      //the octopc to control views and models
 var viewModel = function() {
   var self =this;
